@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net7.0": {
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -511,43 +511,35 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net7.0": [
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.19.5",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fatih\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/uoy/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fatih\\source\\repos\\CurrencyApplication\\CurrencyApplication\\CurrencyApplication.csproj",
+      "projectUniqueName": "/home/uoy/projects/CurrencyWebApi/CurrencyApplication.csproj",
       "projectName": "CurrencyApplication",
-      "projectPath": "C:\\Users\\fatih\\source\\repos\\CurrencyApplication\\CurrencyApplication\\CurrencyApplication.csproj",
-      "packagesPath": "C:\\Users\\fatih\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fatih\\source\\repos\\CurrencyApplication\\CurrencyApplication\\obj\\",
+      "projectPath": "/home/uoy/projects/CurrencyWebApi/CurrencyApplication.csproj",
+      "packagesPath": "/home/uoy/.nuget/packages/",
+      "outputPath": "/home/uoy/projects/CurrencyWebApi/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\fatih\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/uoy/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {}
         }
       },
@@ -558,8 +550,8 @@
       }
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "dependencies": {
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
             "target": "Package",
@@ -589,7 +581,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
       }
     }
   }
