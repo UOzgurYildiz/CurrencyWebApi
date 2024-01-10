@@ -8,9 +8,6 @@ namespace CurrencyApplication.Controllers;
 [ApiController]
 public class CurrencyController : ControllerBase
 {
-
-    private const string BaseUrl = "https://currency-exchange.p.rapidapi.com";
-
     [HttpGet]
     public async Task<IActionResult> GetExchange(string fromCurrency)
     {
@@ -31,24 +28,61 @@ public class CurrencyController : ControllerBase
         {
             response.EnsureSuccessStatusCode();
             body = await response.Content.ReadAsStringAsync();
+        }
+
+        return Ok(body);
+    }
+    
+    [HttpGet("fromto")]
+    public async Task<IActionResult> GetExchangeRates([FromQuery] CurrencyRequestModel currencyRequestModel)
+    {
+        string body = "";
+        var client = new HttpClient();
+        var request = new HttpRequestMessage
+        {
+            Method = HttpMethod.Get,
+            RequestUri = new Uri($"{Config.BaseURL}/convert?from={currencyRequestModel.FromCurrency}&to={currencyRequestModel.ToCurrency}&amount={currencyRequestModel.Amount}"),
+            Headers =
+            {
+                { "X-RapidAPI-Key", "43ec4d652dmshf128ad18dc0d7c3p144ab6jsn219d44a5a794" },
+                { "X-RapidAPI-Host", "currency-conversion-and-exchange-rates.p.rapidapi.com" },
+            },
+        };
+        using (var response = await client.SendAsync(request))
+        {
+            response.EnsureSuccessStatusCode();
+            body = await response.Content.ReadAsStringAsync();
             Console.WriteLine(body);
         }
 
         return Ok(body);
     }
-    [HttpGet("fromto")]
-    public void GetExchangeRates([FromQuery] CurrencyRequestModel currencyRequestModel)
+
+    //Desteklenen currency tipleri için
+
+    [HttpGet("symbols")]
+    public async Task<IActionResult> GetSymbols()
     {
-        
-        /* Console.WriteLine(FinalEndPoint);
-         var client = new HttpClient() ;
-         var response = await client.GetAsync(FinalEndPoint);
-         var content = await response.Content.ReadAsStringAsync();
-         return Ok(content);*/
+        string body = "";
+        var client = new HttpClient();
+        var request = new HttpRequestMessage
+        {
+	        Method = HttpMethod.Get,
+	        RequestUri = new Uri($"{Config.BaseURL}/symbols"),
+	        Headers =
+                {
+                    { "X-RapidAPI-Key", "43ec4d652dmshf128ad18dc0d7c3p144ab6jsn219d44a5a794" },
+                    { "X-RapidAPI-Host", "currency-conversion-and-exchange-rates.p.rapidapi.com" },
+                },
+        };
+        using (var response = await client.SendAsync(request))
+        {
+            response.EnsureSuccessStatusCode();
+            body = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(body);
+        }
+        return Ok(body);
     }
-
-
- 
 
 
 }
